@@ -1,0 +1,39 @@
+This directory contains a Coq formalization of the recursive descent parser used by Egal.
+Some of the parser functions were made structurally recursive in Coq (so that Coq accepts them)
+using an idea of Tobias Tebbi (see tsubl in Prelim2.v).
+
+The code is mainly split into separate files because otherwise Coq (on
+my system) would fail to compile them.  It still takes a long time, so be prepared to wait.
+
+coqc Prelim2
+coqc ParsePrintFull3a
+coqc ParsePrintFull3b
+coqc ParsePrintFull3bb
+coqc ParsePrintFull3bc
+coqc ParsePrintFull3bd
+coqc ParsePrintFull3be
+coqc ParsePrintFull3c
+coqc ParsePrintFull3cb
+coqc ParsePrintFull3d
+coqc ParsePrintFull3db
+coqc ParsePrintFull3e
+
+The corresponding Egal code is in src/parser.ml and src/syntax.ml.
+
+Abstract terms correspond to the type ATree in ParsePrintFull3a.v and atree in src/syntax.ml.
+
+Layout trees correspond to the type LTree in ParsePrintFull3a.v and ltree in src/syntax.ml.
+
+The IO stream is represented by list TOKEN in ParsePrintFull3a.v and tokenstream in src/parser.ml.
+
+The main results are:
+
+1. "Supported" abstract terms (ATrees) can be layed out (LTrees).
+See AL, AL_L2A, AL_A2L_allp, and AL_inj all in ParsePrintFull3a.v.
+
+2. If one prints an LTree and then parses it, then one gets back the original LTree.
+See print_parse_S_id in ParsePrintFull3e.v.
+
+I did this verification because I was frustrated with needing to debug parsers I've
+written in the past. Writing a verified parser was one of the most frustrating
+experiences of my life, so I don't want to revisit it and write it up.

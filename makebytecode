@@ -1,0 +1,94 @@
+#!/bin/bash
+
+# If ocamlc is not in your PATH, put the full path here.
+export OCAMLC=ocamlc
+export OCAMLLEX=ocamllex
+
+$OCAMLLEX src/lexer.mll
+
+$OCAMLC -I bin -o bin/config.cmi -c src/config.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/config.cmo -c src/config.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/secp256k1.cmi -c src/secp256k1.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/secp256k1.cmo nums.cma -c src/secp256k1.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/cryptocurr.cmi -c src/cryptocurr.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/cryptocurr.cmo nums.cma -c src/cryptocurr.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/hash.cmi -c src/hash.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/hash.cmo nums.cma -c src/hash.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/syntax.cmi -c src/syntax.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/syntax.cmo nums.cma -c src/syntax.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/parser.cmi -c src/parser.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/parser.cmo nums.cma -c src/parser.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/lexer.cmo -c src/lexer.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/interpret.cmi -c src/interpret.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/interpret.cmo nums.cma -c src/interpret.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -I bin -o bin/mgcheck.cmo -c src/mgcheck.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLC -o bin/egal.bytecode unix.cma nums.cma bin/config.cmo bin/secp256k1.cmo bin/cryptocurr.cmo bin/hash.cmo bin/syntax.cmo bin/parser.cmo bin/lexer.cmo bin/interpret.cmo bin/mgcheck.cmo
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+

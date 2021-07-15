@@ -1,0 +1,94 @@
+#!/bin/bash
+
+# If ocamlopt is not in your PATH, put the full path here.
+export OCAMLOPT=ocamlopt
+export OCAMLLEX=ocamllex
+
+$OCAMLLEX src/lexer.mll
+
+$OCAMLOPT -I bin -o bin/config.cmi -c src/config.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/config.cmx -c src/config.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/secp256k1.cmi -c src/secp256k1.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/secp256k1.cmx nums.cmxa -c src/secp256k1.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/cryptocurr.cmi -c src/cryptocurr.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/cryptocurr.cmx nums.cmxa -c src/cryptocurr.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/hash.cmi -c src/hash.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/hash.cmx nums.cmxa -c src/hash.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/syntax.cmi -c src/syntax.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/syntax.cmx nums.cmxa -c src/syntax.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/parser.cmi -c src/parser.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/parser.cmx nums.cmxa -c src/parser.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/lexer.cmx -c src/lexer.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/interpret.cmi -c src/interpret.mli
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/interpret.cmx nums.cmxa -c src/interpret.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -I bin -o bin/mgcheck.cmx -c src/mgcheck.ml
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+$OCAMLOPT -o bin/egal unix.cmxa nums.cmxa bin/config.cmx bin/secp256k1.cmx bin/cryptocurr.cmx bin/hash.cmx bin/syntax.cmx bin/parser.cmx bin/lexer.cmx bin/interpret.cmx bin/mgcheck.cmx
+if [ $? -gt 0 ]
+then
+    exit 1
+fi
+

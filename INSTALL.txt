@@ -1,0 +1,46 @@
+You need ocaml and openssl. You don't need make.
+
+In src/config.ml edit the single line
+
+let openssl_exec = "/usr/bin/openssl"
+
+to correspond to your openssl executable, if it doesn't already.
+
+There are two scripts: makebytecode and makeopt.
+You might need to edit these scripts of ocamlc and/or ocamlopt is not in your PATH.
+
+makebytecode will create bin/egal.bytecode which you can then run as
+
+ocamlrun bin/egal.bytecode
+
+If you have ocamlopt, makeopt will create bin/egal which you can call directly.
+
+Here are examples of how to call Egal:
+
+ocamlrun bin/egal.bytecode -ind formaldocs/IndexMar2014 -I formaldocs/ExEq1Preamble.mgs formaldocs/ExEq1Problems.mg
+./bin/egal -ind formaldocs/IndexMar2014 -I formaldocs/ExEq1Preamble.mgs formaldocs/ExEq1.mg
+
+Probably you want to either put egal in your PATH or
+have some kind of alias. Then you can cd to the formaldocs directory and
+do this:
+
+egal -ind IndexMar2014 -I ExEq1Preamble.mgs ExEq1.mg
+egal -ind IndexMar2014 -I CategoryPreamble.mgs CategoryProblems.mg
+
+The command line options are:
+
+-v <verbosity> : Set the verbosity level.
+-I <sigfilenames> : Include these signature files. Signature files are not allowed to have proofs in them.
+-s <sigfilename> : Output a signature file based on the files checked following this option.
+-checksig <sigfilename> : Check that the files checked implement the given signature file.
+-indout <indexfilename> : Create an output this index file.
+-ind <indexfilename> : Use this index file.
+-solves <problemfilename> : Give a problem file and then verify that the files checked after this option solve all the problems in the problem file.
+-reportpfcomplexity : Output information about a "proof complexity" (this was used to suggest the relative sizes of treasures).
+-reporteachitem : Note when each item is being processed.
+-html <htmlfile> : Create html version of the document.
+-ajax <pffile> : Use this to indicate a file with a proof if Egal is being used as a web service ajax-style. That is how it was used on the mathgate.info server.
+-webout : Use this if Egal should give output messages in html.
+-sqlout : Output mysql queries for the document.
+-sqltermout : Output the global names of terms for the mysql database. Only use this when -sqlout is being used.
+-thmsasexercises : Indicate that proofs should be omitted and replaced by Admitted (i.e., left to reader).

@@ -1,0 +1,60 @@
+This directory contains several formalizations Egal can check.
+The following lines show how to call Egal to check them.
+
+egal Foundation.mg
+egal PropLogic1.mg
+egal -ind IndexMar2014 -I ExEq1Preamble.mgs ExEq1.mg
+egal -ind IndexMar2014 -I Preds1Preamble.mgs Preds1.mg
+egal -ind IndexMar2014 -I Relns1Preamble.mgs Relns1.mg
+egal -ind IndexMar2014 -I KnasterTarskiPreamble.mgs KnasterTarski.mg
+egal -ind IndexMar2014 -I Relns2Preamble.mgs Relns2.mg
+egal -ind IndexMar2014 -I Classical1Preamble.mgs Classical1.mg
+egal -ind IndexMar2014 -I ConditionalsPreamble.mgs Conditionals.mg
+egal -ind IndexMar2014 -I Exactly1ofPreamble.mgs Exactly1of.mg
+egal -ind IndexMar2014 -I QuotientsPreamble.mgs Quotients.mg
+egal -ind IndexMar2014 -I Zermelo1908Preamble.mgs Zermelo1908.mg
+egal -ind IndexMar2014 -I Set1aPreamble.mgs Set1a.mg
+egal -ind IndexMar2014 -I Set1bPreamble.mgs Set1b.mg
+egal -ind IndexMar2014 -I Set1cPreamble.mgs Set1c.mg
+egal -ind IndexMar2014 -I Set2Preamble.mgs Set2.mg
+egal -ind IndexMar2014 -I EpsIndPreamble.mgs EpsInd.mg
+egal -ind IndexMar2014 -I Nat1Preamble.mgs Nat1.mg
+egal -ind IndexMar2014 -I Nat2Preamble.mgs Nat2.mg
+egal -ind IndexMar2014 -I UnivInfPreamble.mgs UnivInf.mg
+egal -ind IndexMar2014 -I Ordinals1Preamble.mgs Ordinals1.mg
+egal -ind IndexMar2014 -I DisjointUnionsPreamble.mgs DisjointUnions.mg
+egal -ind IndexMar2014 -I OrderedPairsPreamble.mgs OrderedPairs.mg
+egal -ind IndexMar2014 -I DepSumsPreamble.mgs DepSums.mg
+egal -ind IndexMar2014 -I FuncsSetsPreamble.mgs FuncsSets.mg
+egal -ind IndexMar2014 -I DepProdsPreamble.mgs DepProds.mg
+
+
+egal PropLogic1Problems.mg
+egal -ind IndexMar2014 -I ExEq1Preamble.mgs ExEq1Problems.mg
+egal -ind IndexMar2014 -I Preds1Preamble.mgs Preds1Problems.mg
+egal -ind IndexMar2014 -I Relns1Preamble.mgs Relns1Problems.mg
+egal -ind IndexMar2014 -I KnasterTarskiPreamble.mgs KnasterTarskiProblems.mg
+egal -ind IndexMar2014 -I Relns2Preamble.mgs Relns2Problems.mg
+egal -ind IndexMar2014 -I Classical1Preamble.mgs Classical1Problems.mg
+egal -ind IndexMar2014 -I ConditionalsPreamble.mgs ConditionalsProblems.mg
+egal -ind IndexMar2014 -I Exactly1ofPreamble.mgs Exactly1ofProblems.mg
+egal -ind IndexMar2014 -I QuotientsPreamble.mgs QuotientsProblems.mg
+egal -ind IndexMar2014 -I Zermelo1908Preamble.mgs Zermelo1908Problems.mg
+egal -ind IndexMar2014 -I Set1aPreamble.mgs Set1aProblems.mg
+egal -ind IndexMar2014 -I Set1bPreamble.mgs Set1bProblems.mg
+egal -ind IndexMar2014 -I Set1cPreamble.mgs Set1cProblems.mg
+egal -ind IndexMar2014 -I Set2Preamble.mgs Set2Problems.mg
+egal -ind IndexMar2014 -I EpsIndPreamble.mgs EpsIndProblems.mg
+egal -ind IndexMar2014 -I Nat1Preamble.mgs Nat1Problems.mg
+egal -ind IndexMar2014 -I Nat2Preamble.mgs Nat2Problems.mg
+egal -ind IndexMar2014 -I UnivInfPreamble.mgs UnivInfProblems.mg
+egal -ind IndexMar2014 -I Ordinals1Preamble.mgs Ordinals1Problems.mg
+egal -ind IndexMar2014 -I DisjointUnionsPreamble.mgs DisjointUnionsProblems.mg
+egal -ind IndexMar2014 -I OrderedPairsPreamble.mgs OrderedPairsProblems.mg
+egal -ind IndexMar2014 -I DepSumsPreamble.mgs DepSumsProblems.mg
+egal -ind IndexMar2014 -I FuncsSetsPreamble.mgs FuncsSetsProblems.mg
+egal -ind IndexMar2014 -I DepProdsPreamble.mgs DepProdsProblems.mg
+egal -ind IndexMar2014 -I CategoryPreamble.mgs CategoryProblems.mg
+egal -ind IndexMar2014 -I ModalPreamble.mgs Modal.mg
+egal -ind IndexJune2014 -I GoedelGodPreamble.mgs GoedelGod.mg
+
